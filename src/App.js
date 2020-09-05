@@ -1,6 +1,6 @@
 import React from 'react';
-import Counter from './Counter';
+import Hoc from './Hoc.js';
 
-const App = (props) => <Counter />;
+const App = (props) => <Hoc />;
 
 export default App;
