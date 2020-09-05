@@ -1,6 +1,6 @@
 import React from 'react';
-import Toggle from './Toggle';
+import Counter from './Counter';
 
-const App = (props) => <Toggle />;
+const App = (props) => <Counter />;
 
 export default App;
