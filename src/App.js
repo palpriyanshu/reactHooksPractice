@@ -1,6 +1,10 @@
 import React from 'react';
-import Hoc from './Hoc.js';
+import PokemonGallery from './PokemonGallery';
+import './App.css';
 
-const App = (props) => <Hoc />;
+const App = (props) => {
+  const list = Array.from(Array(100).keys()).slice(1);
+  return <PokemonGallery pokemonList={list} className="gallery" />;
+};
 
 export default App;
