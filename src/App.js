@@ -1,10 +1,6 @@
 import React from 'react';
-import PokemonGallery from './PokemonGallery';
-import './App.css';
+import ToggleComponent from './Timer';
 
-const App = (props) => {
-  const list = Array.from(Array(100).keys()).slice(1);
-  return <PokemonGallery pokemonList={list} className="gallery" />;
-};
+const App = (props) => <ToggleComponent />;
 
 export default App;
