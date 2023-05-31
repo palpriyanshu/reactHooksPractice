@@ -7,13 +7,14 @@ const PokemonDetail = (props) => {
   useEffect(() => {
     const img = isFrontImg ? props.frontImg : props.backImg;
     setImage(img);
-  }, [isFrontImg]);
+  }, [isFrontImg, props.frontImg, props.backImg]);
 
   return (
     <div className="cardStyle">
       <p>{props.name.toUpperCase()}</p>
       <img
         src={img}
+        alt={`pokemon-${props.name}`}
         onClick={() => toggleImage(!isFrontImg)}
         style={{ cursor: 'pointer' }}
       />
@@ -25,13 +26,13 @@ const Pokemon = (props) => {
   const [details, setDetails] = useState(null);
 
   useEffect(() => {
-    fetch(`http://pokeapi.co/api/v2/pokemon/${props.id}`)
-      .then((details) => details.json())
-      .then(({ name, sprites }) => {
-        const { front_default: frontImg, back_default: backImg } = sprites;
-        setDetails({ name, frontImg, backImg });
-      });
-  }, []);
+      fetch(`http://pokeapi.co/api/v2/pokemon/${props.id}`)
+          .then((details) => details.json())
+          .then(({ name, sprites }) => {
+              const { front_default: frontImg, back_default: backImg } = sprites;
+              setDetails({ name, frontImg, backImg });
+          });
+  }, [props.id]);
 
   return details === null ? (
     <p>loading...</p>
